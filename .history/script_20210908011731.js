@@ -65,7 +65,7 @@ const renderCalendar = () => {
     }
     //  console.log(firstDayIndex - 1, "nie poniedziałek");
   } else {
-    for (let x = firstDayIndex - 1; x > -7; x--) {
+    for (let x = firstDayIndex - 1; x > -6; x++) {
       const div = document.createElement("div");
       div.textContent = prevLastDay - x + 1;
       div.className = "prev-date";

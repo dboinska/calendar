@@ -64,13 +64,6 @@ const renderCalendar = () => {
       //days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
     }
     //  console.log(firstDayIndex - 1, "nie poniedziałek");
-  } else {
-    for (let x = firstDayIndex - 1; x > -7; x--) {
-      const div = document.createElement("div");
-      div.textContent = prevLastDay - x + 1;
-      div.className = "prev-date";
-      monthDays.appendChild(div);
-    }
   }
 
   for (let i = 1; i < lastDay + 1; i++) {

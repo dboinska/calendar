@@ -55,23 +55,16 @@ const renderCalendar = () => {
   monthDays.replaceChildren();
   console.log({ prevLastDay });
   console.log({ firstDayIndex });
-  if (firstDayIndex !== 0) {
-    for (let x = firstDayIndex - 1; x > 0; x--) {
-      const div = document.createElement("div");
-      div.textContent = prevLastDay - x + 1;
-      div.className = "prev-date";
-      monthDays.appendChild(div);
-      //days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
-    }
-    //  console.log(firstDayIndex - 1, "nie poniedziałek");
-  } else {
-    for (let x = firstDayIndex - 1; x > -7; x--) {
-      const div = document.createElement("div");
-      div.textContent = prevLastDay - x + 1;
-      div.className = "prev-date";
-      monthDays.appendChild(div);
-    }
+  // if (lastDayIndex !== 0) {
+  for (let x = firstDayIndex - 1; x > 0; x--) {
+    const div = document.createElement("div");
+    div.textContent = prevLastDay - x + 1;
+    div.className = "prev-date";
+    monthDays.appendChild(div);
+    //days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
   }
+  //  console.log(firstDayIndex - 1, "nie poniedziałek");
+  //}
 
   for (let i = 1; i < lastDay + 1; i++) {
     if (
@@ -104,10 +97,9 @@ const renderCalendar = () => {
   //   "d",
   //   d.getDay()
   // );
-  //for (let j = 1; j <= nextDays - 1; j++) {
-
-  //if (d.getDay() !== 0) {
-  for (let j = 1; j <= 7 - d.getDay(); j++) {
+  for (let j = 1; j <= nextDays - 1; j++) {
+    //if (d.getDay() !== 0) {
+    //for (let j = 1; j <= 7 - d.getDay(); j++) {
     console.log(d.getDay(), j);
     if (firstDayIndex !== 5) {
       let div = document.createElement("div");

@@ -16,18 +16,11 @@ const renderCalendar = () => {
   const firstDayIndex = date.getDay();
   const lastDayIndex = new Date(
     date.getFullYear(),
-    date.getMonth() + 1,
+    date.getMonth(),
     0
   ).getDay();
-  const lastDayCurrentIndex = new Date(
-    date.getFullYear(),
-    date.getMonth(),
-    1
-  ).getDay();
-  console.log({ firstDayIndex });
-  console.log({ lastDayIndex });
-  console.log({ lastDay });
-  console.log({ lastDayCurrentIndex });
+  //console.log(lastDayIndex);
+  //console.log(lastDay);
 
   const nextDays = 7 - lastDayIndex - 1;
   const months = [
@@ -53,27 +46,19 @@ const renderCalendar = () => {
   //let days = "";
 
   monthDays.replaceChildren();
-  console.log({ prevLastDay });
-  console.log({ firstDayIndex });
-  if (firstDayIndex !== 0) {
-    for (let x = firstDayIndex - 1; x > 0; x--) {
-      const div = document.createElement("div");
-      div.textContent = prevLastDay - x + 1;
-      div.className = "prev-date";
-      monthDays.appendChild(div);
-      //days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
-    }
-    //  console.log(firstDayIndex - 1, "nie poniedziałek");
-  } else {
-    for (let x = firstDayIndex - 1; x > -7; x--) {
-      const div = document.createElement("div");
-      div.textContent = prevLastDay - x + 1;
-      div.className = "prev-date";
-      monthDays.appendChild(div);
-    }
-  }
 
-  for (let i = 1; i < lastDay + 1; i++) {
+  //if (lastDayIndex !== 0) {
+  for (let x = firstDayIndex - 1; x > 0; x--) {
+    const div = document.createElement("div");
+    div.textContent = prevLastDay - x + 1;
+    div.className = "prev-date";
+    monthDays.appendChild(div);
+    //days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+  }
+  //  console.log(firstDayIndex - 1, "nie poniedziałek");
+  //}
+
+  for (let i = 0; i < lastDay + 1; i++) {
     if (
       i === new Date().getDate() &&
       date.getMonth() === new Date().getMonth()
@@ -109,12 +94,10 @@ const renderCalendar = () => {
   //if (d.getDay() !== 0) {
   for (let j = 1; j <= 7 - d.getDay(); j++) {
     console.log(d.getDay(), j);
-    if (firstDayIndex !== 5) {
-      let div = document.createElement("div");
-      div.textContent = j;
-      div.className = "next-date";
-      monthDays.appendChild(div);
-    }
+    let div = document.createElement("div");
+    div.textContent = j;
+    div.className = "next-date";
+    monthDays.appendChild(div);
     // days += `<div class="next-date">${j}</div>`;
     //monthDays.innerHTML = days;
   }
