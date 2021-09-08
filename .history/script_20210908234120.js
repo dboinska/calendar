@@ -169,5 +169,7 @@ function goToCurrentMonth() {
 }
 
 currentDate.addEventListener("click", (event) => {
+  const today = document.querySelector(".today");
+  const monthDays = document.querySelector(".days");
   goToCurrentMonth();
 });

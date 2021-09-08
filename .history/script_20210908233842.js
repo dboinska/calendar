@@ -131,24 +131,6 @@ function goToNextMonth() {
   renderCalendar();
 }
 
-const prevMonth = document.querySelector(".prev");
-const nextMonth = document.querySelector(".next");
-
-prevMonth.addEventListener("click", backToPrevMonth);
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "ArrowLeft") {
-    backToPrevMonth();
-  } else if (e.key === "ArrowRight") {
-    goToNextMonth();
-  }
-});
-
-nextMonth.addEventListener("click", goToNextMonth);
-
-renderCalendar();
-const currentDate = document.querySelector(".currentDate");
-
 function goToCurrentMonth() {
   console.log("back to current month");
 
@@ -168,6 +150,26 @@ function goToCurrentMonth() {
   }
 }
 
+const prevMonth = document.querySelector(".prev");
+const nextMonth = document.querySelector(".next");
+
+prevMonth.addEventListener("click", backToPrevMonth);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowLeft") {
+    backToPrevMonth();
+  } else if (e.key === "ArrowRight") {
+    goToNextMonth();
+  }
+});
+
+nextMonth.addEventListener("click", goToNextMonth);
+
+renderCalendar();
+const currentDate = document.querySelector(".currentDate");
+
 currentDate.addEventListener("click", (event) => {
+  const today = document.querySelector(".today");
+  const monthDays = document.querySelector(".days");
   goToCurrentMonth();
 });
